@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,800;1,6..12,400;1,6..12,600;1,6..12,800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/mona-sans');
+
+$font-family-regular: 'Nunito Sans', 'Roboto', sans-serif;
+$font-family-condensed: 'Mona Sans', 'Roboto', sans-serif;
+
+$font-size-xs: 8px;
+$font-size-s: 10px;
+$font-size-body: 12px;
+$font-size-body-bigger: 14px;
+$font-size-h3: 16px;
+$font-size-h2: 20px;
+$font-size-h1: 24px;
+$font-size-l: 30px;
+$font-size-xl: 38px;
+$font-size-xxl: 56px;
+
+$font-line-height-xs: 18px;
+$font-line-heighte-s: 20px;
+$font-line-height-body: 22px;
+$font-line-height-body-bigger: 24px;
+$font-line-height-h3: 26px;
+$font-line-height-h2: 30px;
+$font-line-height-h1: 34px;
+$font-line-height-l: 40px;
+$font-line-height-xl: 48px;
+$font-line-height-xxl: 66px;
+
+$font-weight-regular: 400;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 800;
+
+/**
+ * Bigger font sizes looks better with condensed space between letters
+ * So, condensed font is used for bigger font sizes
+ * @param {string} $font-type - 'regular' or 'condensed'
+ */
+@mixin font-family($font-type) {
+  @if $font-type == 'condensed' {
+    font-family: $font-family-condensed;
+    font-stretch: condensed;
+  } @else {
+    font-family: $font-family-regular;
+    font-stretch: normal;
+  }
+}
+
+/**
+ * @param {number} $font-weight - regular: 400, semi-bold: 600 or bold: 800
+ */
+@mixin font-body($font-weight) {
+  @include font-family('regular');
+  font-size: $font-size-body;
+  font-weight: $font-weight;
+}
+
+@mixin font-body-bigger($font-weight) {
+  @include font-family('regular');
+  font-size: $font-size-body-bigger;
+  font-weight: $font-weight;
+}
+
+@mixin font-h3($font-weight) {
+  @include font-family('regular');
+  font-size: $font-size-h3;
+  font-weight: $font-weight;
+}
+
+@mixin font-h2($font-weight) {
+  @include font-family('regular');
+  font-size: $font-size-h2;
+  font-weight: $font-weight;
+}
+
+@mixin font-h1($font-weight) {
+  @include font-family('regular');
+  font-size: $font-size-h1;
+  font-weight: $font-weight;
+}
+
+@mixin font-l($font-weight) {
+  @include font-family('regular');
+  font-size: $font-size-l;
+  font-weight: $font-weight;
+}
+
+@mixin font-xl($font-weight) {
+  @include font-family('condensed');
+  font-size: $font-size-xl;
+  font-weight: $font-weight;
+}
+
+@mixin font-xxl($font-weight) {
+  @include font-family('condensed');
+  font-size: $font-size-xxl;
+  font-weight: $font-weight;
+}
+
+.body {
+  @include font-body($font-weight-regular);
+}
+
+.body-bigger {
+  @include font-body-bigger($font-weight-regular);
+}
+
+.body-bold {
+  @include font-body($font-weight-bold);
+}
+
+.body-bigger-bold {
+  @include font-body-bigger($font-weight-bold);
+}
+
+.body-bold-italic {
+  @include font-body($font-weight-bold);
+  font-style: italic;
+}
+
+.h1 {
+  @include font-h1($font-weight-regular);
+}
+
+.h1-bold {
+  @include font-h1($font-weight-bold);
+}
+
+.h1-bold-italic {
+  @include font-h1($font-weight-bold);
+  font-style: italic;
+}
+
+.h2 {
+  @include font-h2($font-weight-regular);
+}
+
+.h2-bold {
+  @include font-h2($font-weight-bold);
+}
+
+.h2-bold-italic {
+  @include font-h2($font-weight-bold);
+  font-style: italic;
+}
+
+.h3 {
+  @include font-h3($font-weight-regular);
+}
+
+.h3-bold {
+  @include font-h3($font-weight-bold);
+}
+
+.h3-bold-italic {
+  @include font-h3($font-weight-bold);
+  font-style: italic;
+}
+
+.l {
+  @include font-l($font-weight-regular);
+}
+
+.l-bold {
+  @include font-l($font-weight-bold);
+}
+
+.l-bold-italic {
+  @include font-l($font-weight-bold);
+  font-style: italic;
+}
+
+.xl {
+  @include font-xl($font-weight-regular);
+}
+
+.xl-bold {
+  @include font-xl($font-weight-bold);
+}
+
+.xl-bold-italic {
+  @include font-xl($font-weight-bold);
+  font-style: italic;
+}
+
+.xxl {
+  @include font-xxl($font-weight-regular);
+}
+
+.xxl-bold {
+  @include font-xxl($font-weight-bold);
+}
+
+.xxl-bold-italic {
+  @include font-xxl($font-weight-bold);
+  font-style: italic;
+}
