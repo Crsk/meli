@@ -1,0 +1,69 @@
+{
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "extends": [
+    "react-app",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript"
+  ],
+  "rules": {
+    "react/jsx-props-no-spreading": 0,
+    "@typescript-eslint/semi": 0,
+    "semi": [
+      "error",
+      "never"
+    ],
+    "no-unreachable": [
+      "error"
+    ],
+    "no-unexpected-multiline": [
+      "error"
+    ],
+    "@typescript-eslint/no-unused-vars": 1,
+    "max-len": [
+      "error",
+      {
+        "code": 200,
+        "tabWidth": 2,
+        "ignoreComments": true, //"comments": 80
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "newline-before-return": 1,
+    "object-curly-newline": 0,
+    "no-param-reassign": 0,
+    "jsx-a11y/no-autofocus": 0,
+    "no-console": 0,
+    "import/extensions": 0,
+    "import/prefer-default-export": 0,
+    "sort-imports": [
+      "error",
+      {
+        "ignoreDeclarationSort": true
+      }
+    ],
+    "react/jsx-one-expression-per-line": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          [
+            "./src"
+          ]
+        ],
+        "extensions": [
+          ".js",
+          ".ts",
+          ".tsx",
+          ".jsx",
+          ".json"
+        ]
+      }
+    }
+  }
+}
