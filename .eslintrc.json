@@ -2,25 +2,13 @@
   "parserOptions": {
     "project": "tsconfig.json"
   },
-  "extends": [
-    "react-app",
-    "airbnb",
-    "airbnb/hooks",
-    "airbnb-typescript"
-  ],
+  "extends": ["react-app", "airbnb", "airbnb/hooks", "airbnb-typescript", "prettier"],
   "rules": {
     "react/jsx-props-no-spreading": 0,
     "@typescript-eslint/semi": 0,
-    "semi": [
-      "error",
-      "never"
-    ],
-    "no-unreachable": [
-      "error"
-    ],
-    "no-unexpected-multiline": [
-      "error"
-    ],
+    "semi": ["error", "never"],
+    "no-unreachable": ["error"],
+    "no-unexpected-multiline": ["error"],
     "@typescript-eslint/no-unused-vars": 1,
     "max-len": [
       "error",
@@ -46,23 +34,16 @@
         "ignoreDeclarationSort": true
       }
     ],
-    "react/jsx-one-expression-per-line": 0
+    "react/jsx-one-expression-per-line": 0,
+    "react/function-component-definition": 0,
+    "react/button-has-type": 0,
+    "react/require-default-props": 0
   },
   "settings": {
     "import/resolver": {
       "alias": {
-        "map": [
-          [
-            "./src"
-          ]
-        ],
-        "extensions": [
-          ".js",
-          ".ts",
-          ".tsx",
-          ".jsx",
-          ".json"
-        ]
+        "map": [["./src"]],
+        "extensions": [".js", ".ts", ".tsx", ".jsx", ".json"]
       }
     }
   }
