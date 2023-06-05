@@ -1,0 +1,45 @@
+@use '../../abstracts/' as *;
+
+.top-bar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0 128px;
+
+  .logo--container {
+    display: flex;
+    margin-right: 64px;
+
+    &Logo {
+      display: flex;
+      justify-self: center;
+    }
+  }
+
+  .search-bar--container {
+    width: -webkit-fill-available;
+
+    &SearchBar {
+      width: inherit;
+    }
+  }
+
+  .search-bar--banner {
+    width: 100%;
+    display: flex;
+    margin: 0 0 0 64px;
+
+    @media only screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &--dark {
+    background-color: $neutral-1;
+  }
+
+  &--light {
+    background-color: $yellow-11;
+  }
+}
