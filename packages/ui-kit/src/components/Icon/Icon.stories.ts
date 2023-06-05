@@ -66,5 +66,17 @@ export const SortDescLight: Story = {
     theme: 'light',
   },
 }
+
+export const SearchDark: Story = {
+  args: {
+    type: 'search',
+    theme: 'dark',
+  },
+}
+
+export const SearchLight: Story = {
+  args: {
+    type: 'search',
+    theme: 'light',
   },
 }
