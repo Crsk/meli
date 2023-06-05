@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireEvent, prettyDOM, render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { SearchBar } from './SearchBar'
 
 vi.mock('../Icon/Icon', () => ({
