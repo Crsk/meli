@@ -39,3 +39,13 @@ $white: #ffffff;
 
 $gradient-black: linear-gradient(180deg, #101113 0%, #080809 100%);
 $gradient-yellow: linear-gradient(180deg, #fdf173 0%, #fbeb40 100%);
+
+$text-title-dark-mode: rgba(255, 255, 255, 100%);
+$text-primary-dark-mode: rgba(255, 255, 255, 85%);
+$text-secondary-dark-mode: rgba(255, 255, 255, 65%);
+$text-tertiary-dark-mode: rgba(255, 255, 255, 45%);
+
+$text-title-light-mode: rgba(0, 0, 0, 100%);
+$text-primary-light-mode: rgba(0, 0, 0, 85%);
+$text-secondary-light-mode: rgba(0, 0, 0, 65%);
+$text-tertiary-light-mode: rgba(0, 0, 0, 45%);
