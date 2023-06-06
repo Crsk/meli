@@ -1,7 +1,7 @@
 @use '../../abstracts/' as *;
 
 .button {
-  @include font-body(600);
+  font-weight: $font-weight-semi-bold;
   border: $border-width-0;
   cursor: pointer;
 
