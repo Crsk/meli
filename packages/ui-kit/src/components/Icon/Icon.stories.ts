@@ -94,3 +94,17 @@ export const RayLight: Story = {
     theme: 'light',
   },
 }
+
+export const StarDark: Story = {
+  args: {
+    type: 'star',
+    theme: 'dark',
+  },
+}
+
+export const StarLight: Story = {
+  args: {
+    type: 'star',
+    theme: 'light',
+  },
+}

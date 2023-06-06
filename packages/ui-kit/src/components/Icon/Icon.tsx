@@ -1,9 +1,9 @@
 import React from 'react'
 import './icon.scss'
-import { ArrowRight, Ray, Search, Sort, SortAsc, SortDesc } from './vectors'
+import { ArrowRight, Ray, Search, Sort, SortAsc, SortDesc, Star } from './vectors'
 
 interface IconProps {
-  type: 'arrow-right' | 'sort' | 'sort-desc' | 'sort-asc' | 'search' | 'ray'
+  type: 'arrow-right' | 'sort' | 'sort-desc' | 'sort-asc' | 'search' | 'ray' | 'star'
   theme?: 'light' | 'dark'
 }
 
@@ -43,6 +43,13 @@ const Icon = ({ type = 'arrow-right', theme = 'dark' }: IconProps) => {
     return (
       <div data-testid="ray" className="icon-container">
         {Ray(theme)}
+      </div>
+    )
+
+  if (type === 'star')
+    return (
+      <div data-testid="star" className="icon-container">
+        {Star(theme)}
       </div>
     )
 
