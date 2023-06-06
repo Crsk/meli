@@ -1,8 +1,8 @@
 import React from 'react'
 
 const colorMap = {
-  dark: '#0AC5B3', // green-11
-  light: '#00876F', // green-9
+  dark: '#0ac5b3', // green-11
+  light: '#00876f', // green-9
 }
 
 const Ray = (theme: 'dark' | 'light' = 'dark') => (

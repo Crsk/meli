@@ -1,8 +1,8 @@
 import React from 'react'
 
 const colorMap = {
-  dark: '#579AFF', // blue-11
-  light: '#1053D0', // blue-9
+  dark: '#69a5ff', // blue-11
+  light: '#1053d0', // blue-9
 }
 
 const Star = (theme: 'dark' | 'light' = 'dark') => (
