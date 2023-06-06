@@ -1,0 +1,25 @@
+@use '../../abstracts/' as *;
+
+.rating {
+  display: flex;
+  gap: 8px;
+
+  .stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  .review-count {
+    font-size: 12px;
+    font-family: 'Nunito Sans', sans-serif;
+    padding-top: 1px;
+
+    &--dark {
+      color: $blue-11;
+    }
+
+    &--light {
+      color: $blue-9;
+    }
+  }
+}
