@@ -9,6 +9,8 @@ describe('Icon', () => {
     ${'sort'}        | ${'sort'}
     ${'sort-desc'}   | ${'sort-desc'}
     ${'sort-asc'}    | ${'sort-asc'}
+    ${'search'}      | ${'search'}
+    ${'ray'}         | ${'ray'}
   `('renders the $type icon', ({ type, id }) => {
     const { getByTestId } = render(<Icon type={type as any} />)
     const icon = getByTestId(type)

@@ -80,3 +80,17 @@ export const SearchLight: Story = {
     theme: 'light',
   },
 }
+
+export const RayDark: Story = {
+  args: {
+    type: 'ray',
+    theme: 'dark',
+  },
+}
+
+export const RayLight: Story = {
+  args: {
+    type: 'ray',
+    theme: 'light',
+  },
+}
