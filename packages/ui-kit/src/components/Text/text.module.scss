@@ -1,0 +1,99 @@
+@use '../../abstracts/' as *;
+
+$font-sizes: (
+  'xs': $font-size-xs,
+  's': $font-size-s,
+  'body': $font-size-body,
+  'body-bigger': $font-size-body-bigger,
+  'h3': $font-size-h3,
+  'h2': $font-size-h2,
+  'h1': $font-size-h1,
+  'l': $font-size-l,
+  'xl': $font-size-xl,
+  'xxl': $font-size-xxl,
+);
+
+$font-weights: (
+  'regular': $font-weight-regular,
+  'semi-bold': $font-weight-semi-bold,
+  'bold': $font-weight-bold,
+);
+
+$themes: (
+  'dark': $white,
+  'light': $black,
+);
+
+$text-colors: (
+  'title': (
+    'dark': $text-title-dark-mode,
+    'light': $text-title-light-mode,
+  ),
+  'primary': (
+    'dark': $text-primary-dark-mode,
+    'light': $text-primary-light-mode,
+  ),
+  'secondary': (
+    'dark': $text-secondary-dark-mode,
+    'light': $text-secondary-light-mode,
+  ),
+  'tertiary': (
+    'dark': $text-tertiary-dark-mode,
+    'light': $text-tertiary-light-mode,
+  ),
+  'disabled': (
+    'dark': $disabled-dark-mode,
+    'light': $disabled-light-mode,
+  ),
+);
+
+@mixin fontStyle($weight) {
+  font-weight: if(map-has-key($font-weights, $weight), map-get($font-weights, $weight), normal);
+  font-style: if(str-index($weight, 'italic'), italic, normal);
+}
+
+.text {
+  @include font-family('regular');
+  @each $size, $value in $font-sizes {
+    &--#{$size} {
+      font-size: $value;
+
+      @if $size == xl or $size == xxl {
+        @include font-family('condensed');
+      }
+    }
+  }
+
+  @each $level, $themes in $text-colors {
+    @each $theme, $color in $themes {
+      &--#{$level}--#{$theme} {
+        color: $color;
+      }
+    }
+  }
+}
+
+@each $weight in map-keys($font-weights) {
+  .#{$weight} {
+    @include fontStyle($weight);
+    font-weight: map-get($font-weights, $weight);
+  }
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.semi-bold--italic {
+  font-weight: $font-weight-semi-bold;
+  font-style: italic;
+}
+
+.bold--italic {
+  font-weight: $font-weight-bold;
+  font-style: italic;
+}
