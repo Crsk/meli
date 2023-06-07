@@ -17,6 +17,7 @@ export const TexXXLTitleLightBold: Story = {
     level: 'title',
     style: 'bold',
     theme: 'light',
+    color: 'base',
     children: 'Nunca dejes de buscar',
   },
 }
@@ -27,6 +28,7 @@ export const TexLPrimaryLightBold: Story = {
     level: 'primary',
     style: 'bold',
     theme: 'light',
+    color: 'base',
     children: 'Nunca dejes de buscar',
   },
 }
@@ -37,6 +39,7 @@ export const TexHeader1SecondaryLightStrikethrough: Story = {
     level: 'secondary',
     style: 'strikethrough',
     theme: 'light',
+    color: 'base',
     children: 'Nunca dejes de buscar',
   },
 }
@@ -47,6 +50,7 @@ export const TexBodyBiggerTertiaryLightSemiBold: Story = {
     level: 'tertiary',
     style: 'semi-bold',
     theme: 'light',
+    color: 'base',
     children: 'Nunca dejes de buscar',
   },
 }
@@ -57,6 +61,7 @@ export const TexBodyDisabledLightRegular: Story = {
     level: 'disabled',
     style: 'regular',
     theme: 'light',
+    color: 'base',
     children: 'Nunca dejes de buscar',
   },
 }
@@ -67,6 +72,7 @@ export const TexSmallTitleLightRegular: Story = {
     level: 'title',
     style: 'regular',
     theme: 'light',
+    color: 'base',
     children: 'Nunca dejes de buscar',
   },
 }

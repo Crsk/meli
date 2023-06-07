@@ -24,26 +24,86 @@ $themes: (
   'light': $black,
 );
 
-$text-colors: (
-  'title': (
-    'dark': $text-title-dark-mode,
-    'light': $text-title-light-mode,
+$color-map: (
+  'base': (
+    'dark': (
+      'title': $white,
+      'primary': rgba($white, 0.8),
+      'secondary': rgba($white, 0.65),
+      'tertiary': rgba($white, 0.45),
+      'disabled': rgba($white, 0.25),
+    ),
+    'light': (
+      'title': $black,
+      'primary': rgba($black, 0.8),
+      'secondary': rgba($black, 0.65),
+      'tertiary': rgba($black, 0.45),
+      'disabled': rgba($black, 0.25),
+    ),
   ),
-  'primary': (
-    'dark': $text-primary-dark-mode,
-    'light': $text-primary-light-mode,
+  'blue': (
+    'dark': (
+      'title': $blue-11,
+      'primary': rgba($blue-11, 0.8),
+      'secondary': rgba($blue-11, 0.65),
+      'tertiary': rgba($blue-11, 0.45),
+      'disabled': rgba($blue-11, 0.25),
+    ),
+    'light': (
+      'title': $blue-8,
+      'primary': rgba($blue-8, 0.8),
+      'secondary': rgba($blue-8, 0.65),
+      'tertiary': rgba($blue-8, 0.45),
+      'disabled': rgba($blue-8, 0.25),
+    ),
   ),
-  'secondary': (
-    'dark': $text-secondary-dark-mode,
-    'light': $text-secondary-light-mode,
+  'green': (
+    'dark': (
+      'title': $green-11,
+      'primary': rgba($green-11, 0.8),
+      'secondary': rgba($green-11, 0.65),
+      'tertiary': rgba($green-11, 0.45),
+      'disabled': rgba($green-11, 0.25),
+    ),
+    'light': (
+      'title': $green-8,
+      'primary': rgba($green-8, 0.8),
+      'secondary': rgba($green-8, 0.65),
+      'tertiary': rgba($green-8, 0.45),
+      'disabled': rgba($green-8, 0.25),
+    ),
   ),
-  'tertiary': (
-    'dark': $text-tertiary-dark-mode,
-    'light': $text-tertiary-light-mode,
+  'yellow': (
+    'dark': (
+      'title': $yellow-11,
+      'primary': rgba($yellow-11, 0.8),
+      'secondary': rgba($yellow-11, 0.65),
+      'tertiary': rgba($yellow-11, 0.45),
+      'disabled': rgba($yellow-11, 0.25),
+    ),
+    'light': (
+      'title': $yellow-8,
+      'primary': rgba($yellow-8, 0.8),
+      'secondary': rgba($yellow-8, 0.65),
+      'tertiary': rgba($yellow-8, 0.45),
+      'disabled': rgba($yellow-8, 0.25),
+    ),
   ),
-  'disabled': (
-    'dark': $disabled-dark-mode,
-    'light': $disabled-light-mode,
+  'red': (
+    'dark': (
+      'title': $red-11,
+      'primary': rgba($red-11, 0.8),
+      'secondary': rgba($red-11, 0.65),
+      'tertiary': rgba($red-11, 0.45),
+      'disabled': rgba($red-11, 0.25),
+    ),
+    'light': (
+      'title': $red-8,
+      'primary': rgba($red-8, 0.8),
+      'secondary': rgba($red-8, 0.65),
+      'tertiary': rgba($red-8, 0.45),
+      'disabled': rgba($red-8, 0.25),
+    ),
   ),
 );
 
@@ -64,10 +124,12 @@ $text-colors: (
     }
   }
 
-  @each $level, $themes in $text-colors {
-    @each $theme, $color in $themes {
-      &--#{$level}--#{$theme} {
-        color: $color;
+  @each $color, $themes in $color-map {
+    @each $theme, $levels in $themes {
+      @each $level, $color-value in $levels {
+        &--#{$color}--#{$theme}--#{$level} {
+          color: $color-value;
+        }
       }
     }
   }
