@@ -30,3 +30,17 @@ export const TopBarLight: Story = {
     theme: 'light',
   },
 }
+
+export const TopBarDarkWithValue: Story = {
+  args: {
+    theme: 'dark',
+    value: 'iPhone',
+  },
+}
+
+export const TopBarLightWithValue: Story = {
+  args: {
+    theme: 'light',
+    value: 'iPhone',
+  },
+}

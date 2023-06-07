@@ -65,4 +65,13 @@ describe('<SearchBar />', () => {
     expect(lightContainer.firstChild).toHaveClass('search-bar--light')
     expect(lightInput).toHaveClass('search-bar--input--light')
   })
+
+  it('applies the initial value when value prop is provided', () => {
+    const { getByDisplayValue } = render(
+      <SearchBar placeholder="Nunca dejes de buscar" onSearch={onSearch} value="iPhone" />
+    )
+    const inputWithValue = getByDisplayValue('iPhone') as HTMLInputElement
+
+    expect(inputWithValue.value).toBe('iPhone')
+  })
 })

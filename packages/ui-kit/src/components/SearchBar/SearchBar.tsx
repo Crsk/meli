@@ -6,10 +6,11 @@ type SearchBarProps = {
   placeholder: string
   onSearch: (searchValue: string) => void
   theme?: 'light' | 'dark'
+  value?: string
 }
 
-const SearchBar = ({ placeholder, onSearch, theme = 'dark' }: SearchBarProps) => {
-  const [searchValue, setSearchValue] = useState('')
+const SearchBar = ({ placeholder, onSearch, theme = 'dark', value = '' }: SearchBarProps) => {
+  const [searchValue, setSearchValue] = useState(null || value)
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => event.key === 'Enter' && onSearch(searchValue)
 
   return (
