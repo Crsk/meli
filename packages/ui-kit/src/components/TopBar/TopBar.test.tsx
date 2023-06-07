@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { TopBar } from './TopBar'
-import { Theme } from '../../types/theme.type'
+import { Theme } from 'shared/src/types'
 import { backgroundColorMap } from './properties'
 
 interface TopBarProps {

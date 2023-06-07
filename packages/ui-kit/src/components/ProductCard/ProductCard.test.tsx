@@ -1,8 +1,8 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import { Theme } from 'shared/src/types'
+import { Item } from 'shared/src/models'
 import { ProductCard } from './ProductCard'
-import { Theme } from '../../types/theme.type'
-import { Item } from '../../models'
 
 const theme: Theme = 'dark'
 
@@ -21,7 +21,7 @@ vi.mock('../Badge/Badge', () => ({
 vi.mock('../Image/Image', () => ({
   Image: () => <div>Image</div>,
 }))
-vi.mock('../../utils', () => ({
+vi.mock('shared/src/utils', () => ({
   priceDetails: () => ({
     formattedPrice: '$20',
     formattedOriginalPrice: '$25',

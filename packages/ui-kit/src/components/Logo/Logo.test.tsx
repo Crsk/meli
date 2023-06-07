@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { Logo } from './Logo'
-import { Theme } from '../../types/theme.type'
+import { Theme } from 'shared/src/types'
 import { LogoSize, fontColorMap, sizeMap } from './properties'
 
 interface LogoProps {

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import React from 'react'
-import { Theme } from '../../types/theme.type'
+import { Theme } from 'shared/src/types'
 import { LogoSize, fontColorMap, sizeMap } from './properties'
 
 const LogoVector = (theme: Theme = 'dark', size: LogoSize = 'S') => (

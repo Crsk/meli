@@ -34,6 +34,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "prop-types": "^15.8.1",
     "sass": "^1.62.1",
+    "shared": "*",
     "storybook": "^7.0.18",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",

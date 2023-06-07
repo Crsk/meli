@@ -1,5 +1,5 @@
 import React from 'react'
-import { Theme } from '../../types/theme.type'
+import { Theme } from 'shared/src/types'
 import styles from './badge.module.scss'
 
 type BadgeColor = 'blue' | 'green' | 'yellow' | 'red'

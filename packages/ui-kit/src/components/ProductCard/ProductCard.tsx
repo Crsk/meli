@@ -1,14 +1,14 @@
 /* eslint-disable react/style-prop-object */
 import React from 'react'
+import { Theme } from 'shared/src/types'
+import { priceDetails } from 'shared/src/utils'
+import { Item } from 'shared/src/models'
 import { Text } from '../Text/Text'
-import { Theme } from '../../types/theme.type'
 import styles from './product-card.module.scss'
 import { Icon } from '../Icon/Icon'
 import { Rating } from '../Rating/Rating'
 import { Badge } from '../Badge/Badge'
 import { Image } from '../Image/Image'
-import { priceDetails } from '../../utils'
-import { Item } from '../../models'
 
 interface ProductCardProps {
   theme?: Theme
