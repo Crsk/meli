@@ -3,7 +3,7 @@ import { fireEvent, render } from '@testing-library/react'
 import { SearchBar } from './SearchBar'
 
 vi.mock('../Icon/Icon', () => ({
-  default: ({ type }: any) => <div data-testid={`icon-${type}`} />,
+  Icon: ({ type }: any) => <div data-testid={`icon-${type}`} />,
 }))
 
 describe('<SearchBar />', () => {
