@@ -28,6 +28,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "sass": "^1.62.1",
     "typescript": "^5.0.2",
+    "ui-kit": "*",
     "vite": "^4.3.9",
     "vitest": "^0.31.4"
   }
