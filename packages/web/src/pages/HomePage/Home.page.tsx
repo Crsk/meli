@@ -1,13 +1,11 @@
-import React from 'react'
-import { Theme } from 'shared/src/types'
+import React, { useContext } from 'react'
 import { Logo, SearchBar } from 'ui-kit/src/components'
+import { ThemeContext } from '../../contexts'
 import styles from './Home.module.scss'
 
-interface HomePageProps {
-  theme?: Theme
-}
+const Home = () => {
+  const { theme } = useContext(ThemeContext)
 
-const Home = ({ theme = 'light' }: HomePageProps) => {
   const handleSearch = (value: string) => {
     console.log(value)
   }
