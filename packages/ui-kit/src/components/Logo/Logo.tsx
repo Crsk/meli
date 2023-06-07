@@ -1,7 +1,7 @@
 import React from 'react'
+import { Theme } from 'shared/src/types'
 import { LogoVector } from './Logo.vector'
 import { LogoSize } from './properties'
-import { Theme } from 'shared/src/types'
 
 interface LogoProps {
   theme?: Theme
