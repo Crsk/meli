@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './search-bar.module.scss'
-import Icon from '../Icon/Icon'
+import { Icon } from '../Icon/Icon'
 
 type SearchBarProps = {
   placeholder: string

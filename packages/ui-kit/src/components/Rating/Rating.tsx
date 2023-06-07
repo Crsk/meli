@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './rating.module.scss'
-import Icon from '../Icon/Icon'
+import { Icon } from '../Icon/Icon'
 
 interface RatingProps {
   theme?: 'dark' | 'light'

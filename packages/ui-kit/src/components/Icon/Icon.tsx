@@ -56,4 +56,4 @@ const Icon = ({ type = 'arrow-right', theme = 'dark' }: IconProps) => {
   return null
 }
 
-export default Icon
+export { Icon }

@@ -1,6 +1,6 @@
 import React from 'react'
 import './button.scss'
-import Icon from '../Icon/Icon'
+import { Icon } from '../Icon/Icon'
 
 interface ButtonProps {
   size?: 'small' | 'medium' | 'large'
