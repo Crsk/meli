@@ -1,0 +1,17 @@
+.image {
+  border-radius: 16px;
+  &--small {
+    width: 120px;
+    height: 170px;
+  }
+
+  &--medium {
+    width: 160px;
+    height: 160px;
+  }
+
+  &--large {
+    width: 378px;
+    height: 468px;
+  }
+}
