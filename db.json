@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "title": "Apple iPhone 11 (64 GB) - Negro",
+      "price": {
+        "currency": "CLP",
+        "amount": 399,
+        "decimals": 990
+      },
+      "originalPrice": {
+        "amount": 669,
+        "decimals": 990
+      },
+      "picture": "https://loremflickr.com/320/240",
+      "condition": "12x $33.332 sin interés",
+      "freeShipping": true,
+      "seller": "Apple",
+      "reviewCount": 1089,
+      "colorCount": 5
+    },
+    {
+      "id": "2",
+      "title": "Apple iPhone 12 (128 GB) - Negro",
+      "price": {
+        "currency": "CLP",
+        "amount": 499,
+        "decimals": 990
+      },
+      "originalPrice": {
+        "amount": 769,
+        "decimals": 990
+      },
+      "picture": "https://loremflickr.com/320/240",
+      "condition": "12x $33.332 sin interés",
+      "freeShipping": true,
+      "seller": "Apple",
+      "reviewCount": 2098,
+      "colorCount": 5
+    }
+  ]
+}
