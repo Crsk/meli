@@ -1,0 +1,120 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "title": "Apple iPhone 11 (64 GB) - Negro",
+      "price": {
+        "currency": "CLP",
+        "amount": 399,
+        "decimals": 990
+      },
+      "originalPrice": {
+        "amount": 669,
+        "decimals": 990
+      },
+      "picture": "https://loremflickr.com/320/240",
+      "condition": "12x $33.332 sin interés",
+      "freeShipping": true,
+      "seller": "Apple",
+      "reviewCount": 1089,
+      "colorCount": 5
+    },
+    {
+      "id": "2",
+      "title": "Apple iPhone 12 (128 GB) - Negro",
+      "price": {
+        "currency": "CLP",
+        "amount": 499,
+        "decimals": 990
+      },
+      "originalPrice": {
+        "amount": 769,
+        "decimals": 990
+      },
+      "picture": "https://loremflickr.com/320/240",
+      "condition": "12x $33.332 sin interés",
+      "freeShipping": true,
+      "seller": "Apple",
+      "reviewCount": 2098,
+      "colorCount": 5
+    },
+
+    {
+      "id": "3",
+      "title": "Apple iPhone 13 (64 GB) - Blanco",
+      "price": {
+        "currency": "CLP",
+        "amount": 599,
+        "decimals": 990
+      },
+      "originalPrice": {
+        "amount": 869,
+        "decimals": 990
+      },
+      "picture": "https://loremflickr.com/320/240",
+      "condition": "12x $33.332 sin interés",
+      "freeShipping": true,
+      "seller": "Apple",
+      "reviewCount": 945,
+      "colorCount": 5
+    },
+    {
+      "id": "4",
+      "title": "Apple iPhone 14 (128 GB) - Blanco",
+      "price": {
+        "currency": "CLP",
+        "amount": 699,
+        "decimals": 990
+      },
+      "originalPrice": {
+        "amount": 969,
+        "decimals": 990
+      },
+      "picture": "https://loremflickr.com/320/240",
+      "condition": "12x $33.332 sin interés",
+      "freeShipping": true,
+      "seller": "Apple",
+      "reviewCount": 1152,
+      "colorCount": 5
+    },
+
+    {
+      "id": "5",
+      "title": "Apple iPhone 15 (64 GB) - Azul",
+      "price": {
+        "currency": "CLP",
+        "amount": 799,
+        "decimals": 990
+      },
+      "originalPrice": {
+        "amount": 1069,
+        "decimals": 990
+      },
+      "picture": "https://loremflickr.com/320/240",
+      "condition": "12x $33.332 sin interés",
+      "freeShipping": true,
+      "seller": "Apple",
+      "reviewCount": 5712,
+      "colorCount": 5
+    },
+    {
+      "id": "6",
+      "title": "Apple iPhone 16 (128 GB) - Azul",
+      "price": {
+        "currency": "CLP",
+        "amount": 899,
+        "decimals": 990
+      },
+      "originalPrice": {
+        "amount": 1169,
+        "decimals": 990
+      },
+      "picture": "https://loremflickr.com/320/240",
+      "condition": "12x $33.332 sin interés",
+      "freeShipping": true,
+      "seller": "Apple",
+      "reviewCount": 2842,
+      "colorCount": 5
+    }
+  ]
+}

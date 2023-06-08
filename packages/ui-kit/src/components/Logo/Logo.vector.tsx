@@ -4,7 +4,7 @@ import { Theme } from 'shared/src/types'
 import { LogoSize, fontColorMap, sizeMap } from './properties'
 
 const LogoVector = (theme: Theme = 'dark', size: LogoSize = 'S') => (
-  <svg width={sizeMap[size]} height="auto" viewBox="0 0 495 126" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width={sizeMap[size]} viewBox="0 0 495 126" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_32_3698)">
       <path
         d="M92.5517 125.442C143.347 125.442 184.525 97.5116 184.525 63.0582C184.525 28.6048 143.347 0.674805 92.5517 0.674805C41.7561 0.674805 0.578125 28.6048 0.578125 63.0582C0.578125 97.5116 41.7561 125.442 92.5517 125.442Z"

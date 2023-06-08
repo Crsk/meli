@@ -1,10 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 import { Logo } from './Logo'
 
 const meta: Meta<typeof Logo> = {
   title: 'Atoms/Logo',
   tags: ['autodocs'],
   component: Logo,
+  args: {
+    onClick: action('onSearch'),
+  },
   argTypes: {
     theme: {
       control: {

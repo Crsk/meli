@@ -34,3 +34,25 @@ export const SearchBarLight: Story = {
     theme: 'light',
   },
 }
+
+export const SearchBarDarkWithValue: Story = {
+  args: {
+    placeholder: 'Nunca dejes de buscar',
+    onSearch: (searchValue: string) => {
+      action('onSearch')(searchValue)
+    },
+    theme: 'dark',
+    value: 'iPhone',
+  },
+}
+
+export const SearchBarLightWithValue: Story = {
+  args: {
+    placeholder: 'Nunca dejes de buscar',
+    onSearch: (searchValue: string) => {
+      action('onSearch')(searchValue)
+    },
+    theme: 'light',
+    value: 'iPhone',
+  },
+}

@@ -1,13 +1,15 @@
 import React, { useContext } from 'react'
 import { Logo, SearchBar } from 'ui-kit/src/components'
+import { useNavigate } from 'react-router-dom'
 import { ThemeContext } from '../../contexts'
 import styles from './Home.module.scss'
 
 const Home = () => {
+  const navigate = useNavigate()
   const { theme } = useContext(ThemeContext)
 
   const handleSearch = (value: string) => {
-    console.log(value)
+    navigate(`/items?search=${value}`)
   }
 
   return (
