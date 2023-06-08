@@ -8,9 +8,10 @@ import { backgroundColorMap } from './properties/background-color.map'
 type TopBarProps = {
   theme?: Theme
   value?: string
+  onLogoClick?: () => void
 }
 
-const TopBar = ({ theme = 'dark', value = '' }: TopBarProps) => {
+const TopBar = ({ theme = 'dark', value = '', onLogoClick = () => {} }: TopBarProps) => {
   const handleOnSearch = (searchValue: string) => {
     console.log(searchValue)
   }
@@ -18,7 +19,7 @@ const TopBar = ({ theme = 'dark', value = '' }: TopBarProps) => {
   return (
     <div className={`${styles['top-bar']} ${styles[`top-bar--${theme}`]}`}>
       <div className={styles['logo--container']}>
-        <Logo theme={theme} size="S" />
+        <Logo theme={theme} size="S" onClick={onLogoClick} />
       </div>
       <div className={styles['search-bar--container']}>
         <SearchBar theme={theme} placeholder="Nunca pares de buscar" onSearch={handleOnSearch} value={value} />

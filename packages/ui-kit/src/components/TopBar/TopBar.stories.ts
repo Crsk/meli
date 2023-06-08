@@ -1,10 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 import { TopBar } from './TopBar'
 
 const meta: Meta<typeof TopBar> = {
   title: 'Molecules/TopBar',
   tags: ['autodocs'],
   component: TopBar,
+  args: {
+    onLogoClick: action('onLogoClick'),
+  },
   argTypes: {
     theme: {
       control: {

@@ -7,14 +7,17 @@ import { backgroundColorMap } from './properties'
 interface TopBarProps {
   theme?: Theme
   value?: string
+  onLogoClick?: () => void
 }
 
 vi.mock('./TopBar', () => ({
-  TopBar: ({ theme = 'dark', value = '' }: TopBarProps) => (
+  TopBar: ({ theme = 'dark', value = '', onLogoClick = () => {} }: TopBarProps) => (
     <>
-      <svg viewBox="0 0 100 100">
-        <rect cx="50" cy="50" r="40" fill={backgroundColorMap[theme]} />
-      </svg>
+      <button onClick={onLogoClick}>
+        <svg viewBox="0 0 100 100">
+          <rect cx="50" cy="50" r="40" fill={backgroundColorMap[theme]} />
+        </svg>
+      </button>
       <input type="text" value={value} />
     </>
   ),
@@ -38,5 +41,15 @@ describe('TopBar', () => {
     const input = container.querySelector('input') as HTMLInputElement
 
     expect(input.value).toBe('iPhone')
+  })
+
+  it('handles the logo click properly', () => {
+    const onLogoClick = vi.fn()
+    const { container } = render(<TopBar onLogoClick={onLogoClick} />)
+    const button = container.querySelector('button') as HTMLButtonElement
+
+    button.click()
+
+    expect(onLogoClick).toHaveBeenCalled()
   })
 })
