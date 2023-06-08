@@ -9,6 +9,8 @@ const Home = () => {
   const { theme } = useContext(ThemeContext)
 
   const handleSearch = (value: string) => {
+    if (!value) return
+
     navigate(`/items?search=${value}`)
   }
 
