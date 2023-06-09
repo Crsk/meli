@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.module.scss'
-import { Home, NotFound, SearchResults } from './pages'
+import { Home, ItemDetailsPage, NotFound, SearchResults } from './pages'
 import { ThemeSwitcher } from './components'
 
 function App() {
@@ -10,7 +10,11 @@ function App() {
       <ThemeSwitcher />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/items" element={<SearchResults />} />
+        <Route path="/items">
+          <Route path="" element={<SearchResults />} />
+          <Route path=":id" element={<ItemDetailsPage />} />
+        </Route>
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </main>

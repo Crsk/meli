@@ -23,10 +23,11 @@ const SearchResults = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.items}>
-          <Text level="disabled" theme={theme}>
-            {resultCount} coincidencias en total
-          </Text>
-          <div className={styles.breadcrumb}>
+          <div className={styles.info}>
+            <Text level="disabled" theme={theme}>
+              {resultCount} coincidencias en total
+            </Text>
+
             {/* TODO: feed with real categories */}
             <Breadcrumn
               theme={theme}
@@ -36,8 +37,11 @@ const SearchResults = () => {
               ]}
             />
           </div>
+
           {items.map(item => (
-            <ProductCard key={item.id} theme={theme} product={item} />
+            <button onClick={() => navigate(`/items/${item.id}`)}>
+              <ProductCard key={item.id} theme={theme} product={item} />
+            </button>
           ))}
         </div>
       </div>
