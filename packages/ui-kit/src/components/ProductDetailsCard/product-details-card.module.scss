@@ -1,0 +1,94 @@
+@use 'shared/src/abstracts' as *;
+
+.container {
+  padding: 60px 42px;
+  border-radius: 16px;
+  width: 1184px;
+
+  &--dark {
+    background-color: $neutral-1;
+  }
+
+  &--light {
+    background-color: $neutral-12;
+  }
+
+  .product-card {
+    display: flex;
+    justify-content: space-between;
+
+    &.dark {
+      display: block;
+    }
+
+    .product {
+      display: flex;
+      gap: 32px;
+      width: 100%;
+      justify-content: space-between;
+
+      .image {
+        background-color: transparent;
+        display: grid;
+        border-radius: 16px;
+      }
+
+      .product-details {
+        width: 100%;
+
+        .product {
+          .details {
+            display: grid;
+            gap: 16px;
+
+            .title-price-rating {
+              display: flex;
+              gap: 16px;
+              flex-direction: column;
+
+              .price {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+
+                Text {
+                  display: block;
+                }
+
+                .final-price {
+                  display: flex;
+                  gap: 8px;
+                  align-items: center;
+                }
+                .payment-conditions {
+                  display: flex;
+                  gap: 3px;
+                }
+              }
+            }
+
+            .shipping {
+              display: flex;
+              gap: 8px;
+              align-items: center;
+
+              .full {
+                display: flex;
+                align-items: center;
+                gap: 2px;
+              }
+            }
+          }
+
+          .buy-now {
+            display: flex;
+            align-items: flex-end;
+          }
+        }
+      }
+      .description {
+        margin-top: 32px;
+      }
+    }
+  }
+}
