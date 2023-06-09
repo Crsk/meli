@@ -16,7 +16,9 @@ const Breadcrumn = ({ categories, theme = 'dark' }: BreadcrumnProps) => (
       <Text key={category.id} size="body-bigger" theme={theme}>
         {category.name}
         {index < categories.length - 1 && (
-          <Text size="body-bigger">&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;</Text>
+          <Text size="body-bigger" theme={theme}>
+            &nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;
+          </Text>
         )}
       </Text>
     ))}
