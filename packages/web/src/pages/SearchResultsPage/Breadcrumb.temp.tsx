@@ -6,11 +6,11 @@ import { Text } from 'ui-kit/src/components'
  * Temporary component
  * TODO: Move to ui-kit
  */
-interface BreadcrumnProps {
+interface BreadcrumProps {
   categories: { id: string; name: string }[]
   theme?: Theme
 }
-const Breadcrumn = ({ categories, theme = 'dark' }: BreadcrumnProps) => (
+const Breadcrumn = ({ categories, theme = 'dark' }: BreadcrumProps) => (
   <div>
     {categories.map((category, index) => (
       <Text key={category.id} size="body-bigger" theme={theme}>
