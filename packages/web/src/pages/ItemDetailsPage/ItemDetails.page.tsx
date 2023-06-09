@@ -1,28 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { ProductDetailsCard, TopBar } from 'ui-kit/src/components'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { ItemDetails } from 'shared/src/models'
+import { useNavigate, useParams } from 'react-router-dom'
 import { ThemeContext } from '../../contexts'
 import styles from './ItemDetails.module.scss'
 import { Breadcrumn } from './Breadcrumb.temp'
-import { getItem } from '../../api/item'
+import { useItem } from '../../hooks/useItem.hook'
 
 const ItemDetailsPage = () => {
   const { theme } = useContext(ThemeContext)
   const navigate = useNavigate()
-
-  const location = useLocation()
   const onLogoClickHandler = () => navigate('/')
-  const [item, setItem] = useState<ItemDetails>()
   const { id } = useParams()
-
-  useEffect(() => {
-    const fetchItem = async (itemId: string) => {
-      const data = await getItem(itemId)
-      setItem(data)
-    }
-    if (id) fetchItem(id)
-  }, [id, location.search])
+  const [item] = useItem(id)
 
   return (
     <main className={[styles.main, styles[`main--${theme}`]].join(' ')}>
