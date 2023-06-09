@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Mona Sans';
+  src: url('/MonaSans.woff2');
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+
 :root {
   font-family: 'Nunito Sans', 'Roboto', sans-serif;
   background-color: #fdf173;
