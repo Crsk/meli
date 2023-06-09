@@ -43,9 +43,11 @@
           gap: 64px;
 
           .title-price {
+            width: 290px;
             display: flex;
             flex-direction: column;
             gap: 8px;
+            align-items: flex-start;
 
             .badge {
               display: block;
@@ -54,10 +56,14 @@
             .title {
               display: flex;
               flex-direction: column;
+              align-items: flex-start;
+              text-align: left;
             }
 
             .price {
-              display: block;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
 
               .final-price {
                 display: flex;
