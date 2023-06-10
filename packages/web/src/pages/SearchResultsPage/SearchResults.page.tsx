@@ -17,6 +17,12 @@ const SearchResults = () => {
   const { items, totalCount } = data || {}
   const onLogoClickHandler = () => navigate('/')
 
+  const handleSearch = (value: string) => {
+    if (!value) return
+
+    navigate(`/items?search=${value}`)
+  }
+
   if (isFetching)
     return (
       <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -29,7 +35,7 @@ const SearchResults = () => {
   return (
     <main className={[styles.main, styles[`main--${theme}`]].join(' ')}>
       <div className={styles['top-bar']}>
-        <TopBar theme={theme} value={searchQuery} onLogoClick={onLogoClickHandler} />
+        <TopBar theme={theme} value={searchQuery} onLogoClick={onLogoClickHandler} onSearch={handleSearch} />
       </div>
       <div className={styles.container}>
         <div className={styles.items}>
