@@ -1,22 +1,38 @@
 import React, { useContext } from 'react'
-import { ProductDetailsCard, TopBar } from 'ui-kit/src/components'
+import { ProductDetailsCard, Text, TopBar } from 'ui-kit/src/components'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ThemeContext } from '../../contexts'
 import styles from './ItemDetails.module.scss'
 import { Breadcrumn } from './Breadcrumb.temp'
-import { useItem } from '../../hooks/useItem.hook'
+import { useGetItemQuery } from '../../store/api'
+import { randomLoadingMessage } from '../SearchResultsPage/random-message'
 
 const ItemDetailsPage = () => {
   const { theme } = useContext(ThemeContext)
   const navigate = useNavigate()
   const onLogoClickHandler = () => navigate('/')
   const { id } = useParams()
-  const [item] = useItem(id)
+  const { data: item, isFetching } = useGetItemQuery(id!)
+
+  const handleSearch = (value: string) => {
+    if (!value) return
+
+    navigate(`/items?search=${value}`)
+  }
+
+  if (isFetching)
+    return (
+      <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Text size="h3" level="title" color="green" theme={theme}>
+          {randomLoadingMessage()}
+        </Text>
+      </div>
+    )
 
   return (
     <main className={[styles.main, styles[`main--${theme}`]].join(' ')}>
       <div className={styles['top-bar']}>
-        <TopBar theme={theme} onLogoClick={onLogoClickHandler} />
+        <TopBar theme={theme} onLogoClick={onLogoClickHandler} onSearch={handleSearch} />
       </div>
       <div className={styles.container}>
         <div className={styles['items-container']}>

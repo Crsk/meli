@@ -1,5 +1,5 @@
 import { FetchBaseQueryMeta, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Item } from 'shared/src/item'
+import { Item, ItemDescription } from 'shared/src/item'
 import { Response } from 'shared/src/types'
 
 export const apiSlice = createApi({
@@ -13,7 +13,11 @@ export const apiSlice = createApi({
         totalCount: meta.response?.headers.get('X-Total-Count') || undefined,
       }),
     }),
+    getItem: builder.query<ItemDescription | undefined, string>({
+      query: itemId => `items/${itemId}`,
+      transformResponse: (response: Response<ItemDescription>) => response?.payload,
+    }),
   }),
 })
 
-export const { useGetItemsQuery } = apiSlice
+export const { useGetItemsQuery, useGetItemQuery } = apiSlice
