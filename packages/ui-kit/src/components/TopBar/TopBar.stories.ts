@@ -8,6 +8,7 @@ const meta: Meta<typeof TopBar> = {
   component: TopBar,
   args: {
     onLogoClick: action('onLogoClick'),
+    onSearch: action('onSearch'),
   },
   argTypes: {
     theme: {
