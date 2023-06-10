@@ -1,8 +1,7 @@
 import { Item, SourceItem, createItem } from 'shared/src/item'
-import axios from 'axios'
 import { SnakeCase } from '../../types'
 import { toCamelCase } from '../../utils'
-import { fetchBaseUrl } from '../fetch-base-url'
+import { get } from '../api'
 
 type Response = {
   site_id: string
@@ -18,11 +17,10 @@ type Response = {
 }
 
 const getItems = async (query: string): Promise<Item[] | undefined> => {
-  const endpoint = `${fetchBaseUrl}/sites/MLA/search?q=${query}`
-  const response = await axios.get<Response>(endpoint)
-  if (response.status !== 200) throw new Error(`Failed to query "${query}"`)
+  const { data, status } = await get<Response>(`/sites/MLA/search?q=${query}`)
+  if (status !== 200) throw new Error(`Failed to query "${query}"`)
 
-  const itemsSnakeCase: SnakeCase<SourceItem>[] = response.data.results
+  const itemsSnakeCase: SnakeCase<SourceItem>[] = data.results
   const items: Item[] = itemsSnakeCase.map(sourceItem => createItem(toCamelCase(sourceItem)))
 
   return items

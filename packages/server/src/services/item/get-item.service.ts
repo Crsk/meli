@@ -1,8 +1,7 @@
 import { ItemDescription, SourceItem, SourceItemDescription, createItemDescription } from 'shared/src/item'
-import axios from 'axios'
-import { fetchBaseUrl } from '..'
 import { SnakeCase } from '../../types'
 import { toCamelCase } from '../../utils'
+import { get } from '../api'
 
 type ResponseItemDescription = {
   text: string
@@ -18,22 +17,19 @@ type ResponseItemDescription = {
 }
 
 const _getSourceItemDescription = async (itemId: string): Promise<SourceItemDescription | undefined> => {
-  const endpoint = `${fetchBaseUrl}/items/${itemId}/description`
-  const response = await axios.get<ResponseItemDescription>(endpoint)
-  if (response.status !== 200) throw new Error(`Failed to fetch item with ID ${itemId}`)
+  const { data, status } = await get<ResponseItemDescription>(`/items/${itemId}/description`)
+  if (status !== 200) throw new Error(`Failed to fetch item with ID ${itemId}`)
 
-  const sourceItemDescriptionSnakeCase: SnakeCase<SourceItemDescription> = response.data
+  const sourceItemDescriptionSnakeCase: SnakeCase<SourceItemDescription> = data
   const sourceItemDescription: SourceItemDescription = toCamelCase(sourceItemDescriptionSnakeCase)
 
   return sourceItemDescription
 }
 
 const _getSourceItem = async (itemId: string): Promise<SourceItem | undefined> => {
-  const endpoint = `${fetchBaseUrl}/items/${itemId}`
-  const response = await axios.get<SnakeCase<SourceItem>>(endpoint)
-  if (response.status !== 200) throw new Error(`Failed to fetch item with ID ${itemId}`)
+  const { data: sourceItemSnakeCase, status } = await get<SnakeCase<SourceItem>>(`/items/${itemId}`)
+  if (status !== 200) throw new Error(`Failed to fetch item with ID ${itemId}`)
 
-  const sourceItemSnakeCase: SnakeCase<SourceItem> = response.data
   const sourceItem: SourceItem = toCamelCase(sourceItemSnakeCase)
 
   return sourceItem
