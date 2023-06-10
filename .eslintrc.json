@@ -39,7 +39,10 @@
     "react/button-has-type": 0,
     "react/require-default-props": 0,
     "import/no-extraneous-dependencies": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "@typescript-eslint/naming-convention": 0,
+    "no-underscore-dangle": 0,
+    "react/style-prop-object": 0
   },
   "settings": {
     "import/resolver": {
