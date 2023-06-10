@@ -7,9 +7,11 @@ const getItemsController =
   (getItemsService: GetItemsService) =>
   async (req: Request, res: TypedResponse<Item[]>): Promise<TypedResponse<Item[]>> => {
     const query = req.query.q as string
-    const items = await getItemsService(query)
+    const { items, totalCount } = await getItemsService(query)
     if (!items)
       return res.status(StatusCodes.NOT_FOUND).json({ message: `No Items found for "${query}"`, success: false })
+
+    res.set('X-Total-Count', Intl.NumberFormat().format(+totalCount))
 
     return res
       .status(StatusCodes.OK)

@@ -16,14 +16,14 @@ type Response = {
   results: SnakeCase<SourceItem>[]
 }
 
-const getItems = async (query: string): Promise<Item[] | undefined> => {
+const getItems = async (query: string): Promise<{ items: Item[]; totalCount: string }> => {
   const { data, status } = await get<Response>(`/sites/MLA/search?q=${query}`)
   if (status !== 200) throw new Error(`Failed to query "${query}"`)
 
   const itemsSnakeCase: SnakeCase<SourceItem>[] = data.results
   const items: Item[] = itemsSnakeCase.map(sourceItem => createItem(toCamelCase(sourceItem)))
 
-  return items
+  return { items: items.slice(0, 4), totalCount: data.paging.total.toString() }
 }
 
 export { getItems }

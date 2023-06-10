@@ -8,6 +8,10 @@ dotenv.config()
 
 const server: Application = express()
 
+server.all('/*', (_req, res, next) => {
+  res.header('Access-Control-Expose-Headers', '*')
+  next()
+})
 server.use(express.json())
 server.use(express.urlencoded({ extended: false }))
 server.use(morgan('dev'))
