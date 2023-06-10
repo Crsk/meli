@@ -28,6 +28,7 @@ const ProductCard = ({
     colorCount,
     reviewCount,
     freeShipping,
+    picture,
   },
 }: ProductCardProps) => {
   const { formattedPrice, formattedOriginalPrice, discountPct } = priceDetails(
@@ -43,7 +44,7 @@ const ProductCard = ({
       <div className={styles['product-card']}>
         <div className={styles.product}>
           <div className={styles.image}>
-            <Image size="medium" />
+            <Image size="medium" src={picture || '/placeholder-images/medium.png'} />
           </div>
           <div className={styles['product-details']}>
             <div className={styles['title-price-rating']}>

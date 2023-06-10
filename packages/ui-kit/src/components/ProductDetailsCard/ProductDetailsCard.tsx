@@ -27,6 +27,7 @@ const ProductDetailsCard = ({
     freeShipping,
     soldQuantity,
     description,
+    picture,
   },
 }: ProductDetailsCardProps) => {
   const { formattedPrice, formattedOriginalPrice, discountPct } = priceDetails(
@@ -46,7 +47,7 @@ const ProductDetailsCard = ({
       <div className={styles['product-card']}>
         <div className={styles.product}>
           <div className={styles.image}>
-            <Image size="large" />
+            <Image size="large" src={picture || '/placeholder-images/large.png'} />
           </div>
           <div className={styles['product-details']}>
             <div className={styles.product}>
