@@ -3,8 +3,8 @@ import { ProductCard, Text, TopBar } from 'ui-kit/src/components'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ThemeContext } from '../../contexts'
 import styles from './SearchResults.module.scss'
-import { useSearchResults } from '../../hooks'
 import { Breadcrumn } from './Breadcrumb.temp'
+import { useGetItemsQuery } from '../../store/api'
 
 const SearchResults = () => {
   const { theme } = useContext(ThemeContext)
@@ -13,8 +13,11 @@ const SearchResults = () => {
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
   const searchQuery: string = searchParams.get('search') || ''
-  const [items, resultCount] = useSearchResults(searchQuery)
+  const { data, isFetching } = useGetItemsQuery(searchQuery)
+  const { items, totalCount } = data || {}
   const onLogoClickHandler = () => navigate('/')
+
+  if (isFetching) return <div>Cargando...</div>
 
   return (
     <main className={[styles.main, styles[`main--${theme}`]].join(' ')}>
@@ -24,9 +27,11 @@ const SearchResults = () => {
       <div className={styles.container}>
         <div className={styles.items}>
           <div className={styles.info}>
-            <Text level="disabled" theme={theme}>
-              {resultCount} coincidencias en total
-            </Text>
+            {totalCount && (
+              <Text level="disabled" theme={theme}>
+                {totalCount} coincidencias en total
+              </Text>
+            )}
 
             {/* TODO: feed with real categories */}
             <Breadcrumn
@@ -38,7 +43,7 @@ const SearchResults = () => {
             />
           </div>
 
-          {items.map(item => (
+          {items?.map(item => (
             <button onClick={() => navigate(`/items/${item.id}`)}>
               <ProductCard key={item.id} theme={theme} product={item} />
             </button>
