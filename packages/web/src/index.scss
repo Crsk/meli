@@ -1,3 +1,5 @@
+@use 'shared/src/abstracts/' as *;
+
 @font-face {
   font-family: 'Mona Sans';
   src: url('/MonaSans.woff2');
@@ -7,7 +9,14 @@
 
 :root {
   font-family: 'Nunito Sans', 'Roboto', sans-serif;
-  background-color: #fdf173;
+}
+
+.dark {
+  background-color: $neutral-2;
+}
+
+.light {
+  background-color: $neutral-12;
 }
 
 body {
