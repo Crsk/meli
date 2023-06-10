@@ -2,7 +2,7 @@
 import React from 'react'
 import { Theme } from 'shared/src/types'
 import { priceDetails } from 'shared/src/utils'
-import { Item } from 'shared/src/models'
+import { Item } from 'shared/src/item'
 import { Text } from '../Text/Text'
 import styles from './product-card.module.scss'
 import { Icon } from '../Icon/Icon'

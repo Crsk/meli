@@ -1,6 +1,6 @@
 /* eslint-disable react/style-prop-object */
 import React, { useMemo } from 'react'
-import { ItemDetails } from 'shared/src/models'
+import { ItemDescription } from 'shared/src/item'
 import { Theme } from 'shared/src/types'
 import { bigNumberShortener, priceDetails } from 'shared/src/utils'
 import styles from './product-details-card.module.scss'
@@ -13,7 +13,7 @@ import { Button } from '../Button/Button'
 
 interface ProductDetailsCardProps {
   theme?: Theme
-  productDetails: ItemDetails
+  productDetails: ItemDescription
 }
 
 const ProductDetailsCard = ({

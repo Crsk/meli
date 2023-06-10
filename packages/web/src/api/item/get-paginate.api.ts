@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Item } from 'shared/src/models'
+import { Item } from 'shared/src/item'
 import { baseUrl } from '../base-url.api'
 
 /**

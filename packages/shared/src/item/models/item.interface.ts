@@ -1,4 +1,8 @@
-import { Price } from '../types'
+type Price = {
+  currency: string
+  amount: number
+  decimals: number
+}
 
 interface Item {
   id: string
@@ -11,6 +15,7 @@ interface Item {
   seller: string
   reviewCount: number
   colorCount: number
+  soldQuantity: number
 }
 
 export type { Item }

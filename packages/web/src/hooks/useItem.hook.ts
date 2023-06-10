@@ -1,11 +1,11 @@
 import { Dispatch, useEffect, useState } from 'react'
-import { ItemDetails } from 'shared/src/models'
+import { ItemDescription } from 'shared/src/item'
 import { getItem } from '../api/item'
 
 const useItem = (
   id: string | undefined
-): [ItemDetails | undefined, Dispatch<React.SetStateAction<ItemDetails | undefined>>] => {
-  const [item, setItem] = useState<ItemDetails>()
+): [ItemDescription | undefined, Dispatch<React.SetStateAction<ItemDescription | undefined>>] => {
+  const [item, setItem] = useState<ItemDescription>()
 
   useEffect(() => {
     const fetchItem = async (itemId: string) => {

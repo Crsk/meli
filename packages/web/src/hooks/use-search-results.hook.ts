@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Item } from 'shared/src/models'
+import { Item } from 'shared/src/item'
 import { getPaginate } from '../api/item'
 
 const useSearchResults = (searchQuery: string): [Item[], number] => {

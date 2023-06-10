@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { Theme } from 'shared/src/types'
-import { Item } from 'shared/src/models'
+import { Item } from 'shared/src/item'
 import { ProductCard } from './ProductCard'
 
 const theme: Theme = 'dark'
@@ -44,6 +44,7 @@ describe('ProductCard', () => {
       colorCount: 2,
       reviewCount: 5,
       freeShipping: true,
+      soldQuantity: 100,
     }
   })
 
