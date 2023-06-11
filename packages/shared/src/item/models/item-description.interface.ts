@@ -2,7 +2,7 @@ import { Author } from './author.interface'
 import { Item } from './item.interface'
 
 interface ItemDescription extends Item {
-  author: Author
+  author?: Author
   description: string
 }
 

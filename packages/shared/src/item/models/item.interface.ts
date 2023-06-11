@@ -7,7 +7,7 @@ type Price = {
 }
 
 interface Item {
-  author: Author
+  author?: Author
   id: string
   title: string
   price: Price
