@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { ProductCard, Text, TopBar } from 'ui-kit/src/components'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ThemeContext } from '../../contexts'
@@ -14,7 +14,7 @@ const SearchResults = () => {
   const searchParams = new URLSearchParams(location.search)
   const searchQuery: string = searchParams.get('search') || ''
   const { data, isFetching } = useGetItemsQuery(searchQuery)
-  const { items, totalCount } = data || {}
+
   const onLogoClickHandler = () => navigate('/')
 
   const handleSearch = (value: string) => {
@@ -22,6 +22,16 @@ const SearchResults = () => {
 
     navigate(`/items?search=${value}`)
   }
+
+  const items = data?.searchResult?.items
+  const popularCategory = data?.searchResult?.popularCategory
+  const totalCount = data?.totalCount
+
+  const getCategories = useMemo(() => {
+    if (popularCategory?.pathFromRoot) return popularCategory.pathFromRoot
+
+    return [{ id: 'category', name: popularCategory?.name || 'Sin categoría' }]
+  }, [popularCategory])
 
   if (isFetching)
     return (
@@ -45,15 +55,7 @@ const SearchResults = () => {
                 {totalCount} coincidencias en total
               </Text>
             )}
-
-            {/* TODO: feed with real categories */}
-            <Breadcrumn
-              theme={theme}
-              categories={[
-                { id: '1', name: 'Celulares y Telefonía' },
-                { id: '2', name: 'Celulares y Smartphones' },
-              ]}
-            />
+            <Breadcrumn theme={theme} categories={getCategories} />
           </div>
 
           {items?.map(item => (

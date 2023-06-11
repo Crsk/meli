@@ -1,17 +1,26 @@
 import { FetchBaseQueryMeta, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Item, ItemDescription } from 'shared/src/item'
+import { ItemDescription, SearchResult } from 'shared/src/item'
 import { Response } from 'shared/src/types'
 
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' }),
   endpoints: builder => ({
-    getItems: builder.query<{ items: Item[]; totalCount: string | undefined }, string>({
+    getItems: builder.query<{ searchResult: SearchResult; totalCount: string | undefined }, string>({
       query: searchQuery => `items?q=${searchQuery}`,
-      transformResponse: (response: Response<Item[]>, meta: FetchBaseQueryMeta) => ({
-        items: response.payload || [],
-        totalCount: meta.response?.headers.get('X-Total-Count') || undefined,
-      }),
+      transformResponse: (response: Response<SearchResult>, meta: FetchBaseQueryMeta) => {
+        const searchResult: SearchResult = {
+          author: response.payload?.author!,
+          items: response.payload?.items || [],
+          categories: response.payload?.categories!,
+          popularCategory: response.payload?.popularCategory || null,
+        }
+
+        return {
+          searchResult,
+          totalCount: meta.response?.headers.get('X-Total-Count') || undefined,
+        }
+      },
     }),
     getItem: builder.query<ItemDescription | undefined, string>({
       query: itemId => `items/${itemId}`,
