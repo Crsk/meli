@@ -1,21 +1,22 @@
 import { Request } from 'express'
-import { Item } from 'shared/src/item'
+import { SearchResult } from 'shared/src/item'
 import { GetItemsService } from '../../types/item-service'
 import { StatusCodes, TypedResponse } from '../../types'
 
 const getItemsController =
   (getItemsService: GetItemsService) =>
-  async (req: Request, res: TypedResponse<Item[]>): Promise<TypedResponse<Item[]>> => {
+  async (req: Request, res: TypedResponse<SearchResult>): Promise<TypedResponse<SearchResult>> => {
     const query = req.query.q as string
-    const { items, totalCount } = await getItemsService(query)
-    if (!items)
+    const { searchResult, totalCount } = await getItemsService(query)
+
+    if (!searchResult)
       return res.status(StatusCodes.NOT_FOUND).json({ message: `No Items found for "${query}"`, success: false })
 
     res.set('X-Total-Count', Intl.NumberFormat().format(+totalCount))
 
     return res
       .status(StatusCodes.OK)
-      .json({ message: `${items.length} Items retrieved`, payload: items, success: true })
+      .json({ message: `${searchResult.items?.length} Items retrieved`, payload: searchResult, success: true })
   }
 
 export { getItemsController }

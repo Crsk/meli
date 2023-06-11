@@ -1,29 +1,16 @@
-import { Item, SourceItem, createItem } from 'shared/src/item'
+import { SearchResult, SourceSearchResult, createSearchResult } from 'shared/src/item'
 import { SnakeCase } from '../../types'
 import { toCamelCase } from '../../utils'
 import { get } from '../api'
 
-type Response = {
-  site_id: string
-  country_default_time_zone: string
-  query: string
-  paging: {
-    total: number
-    primary_results: number
-    offset: number
-    limit: number
-  }
-  results: SnakeCase<SourceItem>[]
-}
-
-const getItems = async (query: string): Promise<{ items: Item[]; totalCount: string }> => {
-  const { data, status } = await get<Response>(`/sites/MLA/search?q=${query}`)
+const getItems = async (query: string): Promise<{ searchResult: SearchResult; totalCount: string }> => {
+  const { data: sourceSearchResult, status } = await get<SnakeCase<SourceSearchResult>>(`/sites/MLA/search?q=${query}`)
   if (status !== 200) throw new Error(`Failed to query "${query}"`)
 
-  const itemsSnakeCase: SnakeCase<SourceItem>[] = data.results
-  const items: Item[] = itemsSnakeCase.map(sourceItem => createItem(toCamelCase(sourceItem)))
+  const searchResult: SearchResult = createSearchResult(toCamelCase(sourceSearchResult))
+  searchResult.items = searchResult.items?.slice(0, 4)
 
-  return { items: items.slice(0, 4), totalCount: data.paging.total.toString() }
+  return { searchResult, totalCount: sourceSearchResult.paging.total.toString() }
 }
 
 export { getItems }

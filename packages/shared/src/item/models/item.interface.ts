@@ -1,5 +1,3 @@
-import { Author } from './author.interface'
-
 type Price = {
   currency: string
   amount: number
@@ -7,7 +5,6 @@ type Price = {
 }
 
 interface Item {
-  author?: Author
   id: string
   title: string
   price: Price
