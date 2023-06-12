@@ -1,4 +1,4 @@
-import { PathFromRoot } from '../../../item'
+import { PathFromRoot } from '../../../item/models/source/source-search-result.interface'
 
 interface Setting {
   adultContent: boolean
