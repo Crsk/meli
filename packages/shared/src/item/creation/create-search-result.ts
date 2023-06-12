@@ -9,7 +9,7 @@ const createSearchResult = (searchResult: SourceSearchResult): SearchResult => {
   const items: Item[] = searchResult.results.map(sourceItem => createItem(sourceItem))
 
   return {
-    ...author('Christopher', 'Kiessling'),
+    ...author('', ''), // signing from middleware
     ...categories(searchResult),
     ...{ items },
   }

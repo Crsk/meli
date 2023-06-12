@@ -11,7 +11,7 @@ const createItemDescriptionResult = (
   sourceItemDescription: SourceItemDescription,
   sourceCategory: SourceCategory
 ): ItemDescriptionResult => ({
-  ...author('Christopher', 'Kiessling'),
+  ...author('', ''), // signing from middleware
   ...category(sourceCategory),
   ...item(sourceItem),
   ...itemDescription(sourceItemDescription),

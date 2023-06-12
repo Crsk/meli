@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv'
 import cors from 'cors'
 import morgan from 'morgan'
 import { itemRoutes } from './routes/item'
+import signMiddleware from './middlewares/sign.middleware'
 
 dotenv.config()
 
@@ -16,6 +17,7 @@ server.use(express.json())
 server.use(express.urlencoded({ extended: false }))
 server.use(morgan('dev'))
 server.use(cors())
+server.use(signMiddleware)
 itemRoutes(server)
 
 export default server
