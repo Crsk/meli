@@ -3,9 +3,9 @@ import { SourceItem } from '../../models/source/source-item.interface'
 import { AppliedFilter, AvailableFilter, SourceSearchResult } from '../../models/source/source-search-result.interface'
 
 const categoryId = 'category'
-type Category = { categories: string[]; popularCategory: PopularCategory | null }
+type InferedCategory = { categories: string[]; popularCategory: PopularCategory | null }
 
-const getCategoriesFromApliedFilters = (filters: AppliedFilter[]): Category | undefined => {
+const getCategoriesFromApliedFilters = (filters: AppliedFilter[]): InferedCategory | undefined => {
   if (!filters) return undefined
 
   const categoryFilter = filters.find(filter => filter.id === categoryId)
@@ -26,7 +26,7 @@ const getCategoriesFromApliedFilters = (filters: AppliedFilter[]): Category | un
   return undefined
 }
 
-const getCategoriesFromAvailableFilters = (availableFilters: AvailableFilter[]): Category | undefined => {
+const getCategoriesFromAvailableFilters = (availableFilters: AvailableFilter[]): InferedCategory | undefined => {
   if (!availableFilters) return undefined
 
   const availableCategoryFilter = availableFilters.find(filter => filter.id === categoryId)
@@ -61,7 +61,7 @@ const getPopularCategoryCategory = (categories: string[]): string | undefined =>
   return Object.keys(categoryCount).reduce((a, b) => (categoryCount[a] > categoryCount[b] ? a : b), '')
 }
 
-const getCategoryIdsFromItems = (items: SourceItem[]): Category | undefined => {
+const getCategoryIdsFromItems = (items: SourceItem[]): InferedCategory | undefined => {
   if (!items) return undefined
 
   const categoryIds = items.map(item => item.categoryId)
@@ -78,7 +78,7 @@ const getCategoryIdsFromItems = (items: SourceItem[]): Category | undefined => {
  * If none of above, get the most popular categoryId from the items
  * @param sourceSearchResult the API response from the items search endpoint
  */
-const getCategories = (sourceSearchResult: SourceSearchResult): Category => {
+const getCategories = (sourceSearchResult: SourceSearchResult): InferedCategory => {
   const categoriesFromFilters = getCategoriesFromApliedFilters(sourceSearchResult.filters)
   if (categoriesFromFilters) return categoriesFromFilters
 
@@ -91,7 +91,7 @@ const getCategories = (sourceSearchResult: SourceSearchResult): Category => {
   return { categories: [], popularCategory: null }
 }
 
-const categories = (sourceSearchResult: SourceSearchResult): Category => {
+const categories = (sourceSearchResult: SourceSearchResult): InferedCategory => {
   const { categories: searchCategories, popularCategory } = getCategories(sourceSearchResult)
 
   return {

@@ -1,3 +1,3 @@
-import { ItemDescription } from 'shared/src/item'
+import { ItemDescriptionResult } from 'shared/src/item'
 
-export type GetItemService = (itemId: string) => Promise<ItemDescription | undefined>
+export type GetItemService = (itemId: string) => Promise<ItemDescriptionResult | undefined>
