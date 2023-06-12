@@ -24,7 +24,6 @@ const ProductCard = ({
     seller,
     price: { currency, amount, decimals },
     originalPrice: { amount: originalAmount, decimals: originalDecimals },
-    condition,
     colorCount,
     reviewCount,
     freeShipping,
@@ -85,8 +84,9 @@ const ProductCard = ({
                     <Text theme={theme} level="tertiary">
                       en
                     </Text>
+                    {/** TODO */}
                     <Text theme={theme} color="green" level="title">
-                      {condition}
+                      12x $33.332 sin interés
                     </Text>
                   </div>
                 </div>
