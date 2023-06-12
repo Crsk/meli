@@ -4,7 +4,7 @@ import { toCamelCase } from '../../utils'
 import { get } from '../api'
 
 const getItems = async (query: string): Promise<{ searchResult: SearchResult; totalCount: string }> => {
-  const { data: sourceSearchResult, status } = await get<SnakeCase<SourceSearchResult>>(`/sites/MLA/search?q=${query}`)
+  const { data: sourceSearchResult, status } = await get<SnakeCase<SourceSearchResult>>(`/sites/MLC/search?q=${query}`)
   if (status !== 200) throw new Error(`Failed to query "${query}"`)
 
   const searchResult: SearchResult = createSearchResult(toCamelCase(sourceSearchResult))
