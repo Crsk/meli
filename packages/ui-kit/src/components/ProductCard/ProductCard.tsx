@@ -75,9 +75,11 @@ const ProductCard = ({
                     <Text size="h1" level="title" theme={theme}>
                       {formattedPrice}
                     </Text>
-                    <Text theme={theme} color="green" level="title">
-                      {discountPct}% OFF
-                    </Text>
+                    {discountPct > 0 && (
+                      <Text theme={theme} color="green" level="title">
+                        {discountPct}% OFF
+                      </Text>
+                    )}
                   </div>
 
                   <div className={styles['payment-conditions']}>
