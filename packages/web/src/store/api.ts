@@ -1,5 +1,5 @@
 import { FetchBaseQueryMeta, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { ItemDescription, SearchResult } from 'shared/src/item'
+import { ItemDescriptionResult, SearchResult } from 'shared/src/item'
 import { Response } from 'shared/src/types'
 
 export const apiSlice = createApi({
@@ -22,9 +22,9 @@ export const apiSlice = createApi({
         }
       },
     }),
-    getItem: builder.query<ItemDescription | undefined, string>({
+    getItem: builder.query<ItemDescriptionResult | undefined, string>({
       query: itemId => `items/${itemId}`,
-      transformResponse: (response: Response<ItemDescription>) => response?.payload,
+      transformResponse: (response: Response<ItemDescriptionResult>) => response?.payload,
     }),
   }),
 })

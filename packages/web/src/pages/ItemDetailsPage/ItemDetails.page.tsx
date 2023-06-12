@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { ProductDetailsCard, Text, TopBar } from 'ui-kit/src/components'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ThemeContext } from '../../contexts'
@@ -12,13 +12,20 @@ const ItemDetailsPage = () => {
   const navigate = useNavigate()
   const onLogoClickHandler = () => navigate('/')
   const { id } = useParams()
-  const { data: item, isFetching } = useGetItemQuery(id!)
+  const { data: response, isFetching } = useGetItemQuery(id!)
 
   const handleSearch = (value: string) => {
     if (!value) return
 
     navigate(`/items?search=${value}`)
   }
+
+  // TODO: Move to category specific component
+  const getCategories = useMemo(() => {
+    if (response?.category?.pathFromRoot) return response.category.pathFromRoot
+
+    return [{ id: 'category', name: response?.category?.name || 'Sin categoría' }]
+  }, [response])
 
   if (isFetching)
     return (
@@ -36,18 +43,14 @@ const ItemDetailsPage = () => {
       </div>
       <div className={styles.container}>
         <div className={styles['items-container']}>
+          {/** TODO: move to ui-kit */}
           <div className={styles.breadcrumb}>
-            {/* TODO: feed with real categories */}
-            <Breadcrumn
-              theme={theme}
-              categories={[
-                { id: '1', name: 'Celulares y Telefonía' },
-                { id: '2', name: 'Celulares y Smartphones' },
-              ]}
-            />
+            <Breadcrumn theme={theme} categories={getCategories} />
           </div>
 
-          <div className={styles.item}>{item && <ProductDetailsCard productDetails={item} theme={theme} />}</div>
+          <div className={styles.item}>
+            {response && <ProductDetailsCard productDetails={response} theme={theme} />}
+          </div>
         </div>
       </div>
     </main>

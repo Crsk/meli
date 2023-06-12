@@ -27,6 +27,7 @@ const SearchResults = () => {
   const popularCategory = data?.searchResult?.popularCategory
   const totalCount = data?.totalCount
 
+  // TODO: Move to category specific component
   const getCategories = useMemo(() => {
     if (popularCategory?.pathFromRoot) return popularCategory.pathFromRoot
 
@@ -55,6 +56,7 @@ const SearchResults = () => {
                 {totalCount} coincidencias en total
               </Text>
             )}
+            {/** TODO: move to ui-kit */}
             <Breadcrumn theme={theme} categories={getCategories} />
           </div>
 
